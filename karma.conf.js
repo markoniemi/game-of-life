@@ -8,14 +8,14 @@ module.exports = function(karma) {
 		preprocessors : {
 			'app*/**/*-test.js' : [ 'browserify' ]
 		},
-		browsers : [ 'Chrome' ],
-//		browsers : [ 'PhantomJS' ],
+//		browsers : [ 'Chrome' ],
+		browsers : [ 'PhantomJS' ],
 		// logLevel: 'LOG_DEBUG',
-		singleRun : false,
-		autoWatch : true,
+		singleRun : true,
+		autoWatch : false,
 		// browserify configuration
 		browserify : {
-			debug : true,
+			debug : false,
 			transform : [ 'brfs', 'browserify-shim' ]
 		}
 	});
