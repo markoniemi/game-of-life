@@ -4,13 +4,13 @@ module.exports = function(karma) {
 	karma.set({
 		frameworks : [ 'jasmine', 'browserify' ],
 		files : [ 'app*/**/*-test.js' ],
-		reporters : [ 'dots', 'coverage' ],
+		reporters : [ 'dots', 'coverage', 'coveralls' ],
 		preprocessors : {
 			'app*/**/*-test.js' : [ 'browserify' ],
 			'app*/**/*.js' : [ 'browserify' ]
 		},
-		browsers : [ 'Chrome' ],
-//		browsers : [ 'PhantomJS' ],
+//		browsers : [ 'Chrome' ],
+		browsers : [ 'PhantomJS' ],
 		// logLevel: 'LOG_DEBUG',
 		singleRun : true,
 		autoWatch : false,
@@ -18,6 +18,10 @@ module.exports = function(karma) {
 		browserify : {
 			debug : false,
 			transform : [ 'brfs', 'browserify-shim', 'browserify-istanbul' ]
+		},
+		coverageReporter : {
+				type : 'lcov',
+				dir : 'coverage/'
 		}
 	});
 };
