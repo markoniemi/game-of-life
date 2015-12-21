@@ -4,19 +4,20 @@ module.exports = function(karma) {
 	karma.set({
 		frameworks : [ 'jasmine', 'browserify' ],
 		files : [ 'app*/**/*-test.js' ],
-		reporters : [ 'dots' ],
+		reporters : [ 'dots', 'coverage' ],
 		preprocessors : {
-			'app*/**/*-test.js' : [ 'browserify' ]
+			'app*/**/*-test.js' : [ 'browserify' ],
+			'app*/**/*.js' : [ 'browserify' ]
 		},
-//		browsers : [ 'Chrome' ],
-		browsers : [ 'PhantomJS' ],
+		browsers : [ 'Chrome' ],
+//		browsers : [ 'PhantomJS' ],
 		// logLevel: 'LOG_DEBUG',
 		singleRun : true,
 		autoWatch : false,
 		// browserify configuration
 		browserify : {
 			debug : false,
-			transform : [ 'brfs', 'browserify-shim' ]
+			transform : [ 'brfs', 'browserify-shim', 'browserify-istanbul' ]
 		}
 	});
 };
