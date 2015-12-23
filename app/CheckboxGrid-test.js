@@ -1,4 +1,4 @@
-require('../node_modules/karma-jasmine/lib/jasmine').Spec;
+//require('../node_modules/karma-jasmine/lib/jasmine').Spec;
 CheckboxGrid = require('./CheckboxGrid');
 Board = require('./Board');
 var checkboxGrid;

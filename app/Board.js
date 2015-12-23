@@ -7,11 +7,11 @@ var Board = function(size) {
 			this.board[x][y] = false;
 		}
 	}
-}
+};
 
 Board.prototype.setValue = function(x, y, value) {
 	this.board[x][y] = value;
-}
+};
 Board.prototype.getValue = function(x, y) {
 	var tempX = x;
 	var tempY = y;
@@ -26,7 +26,7 @@ Board.prototype.getValue = function(x, y) {
 		tempY = 0;
 	}
 	return this.board[tempX][tempY];
-}
+};
 
 Board.prototype.setValues = function(board) {
 	for (var x = 0; x < this.size; x++) {
@@ -34,7 +34,7 @@ Board.prototype.setValues = function(board) {
 			this.setValue(x,y, board.getValue(x,y));
 		}
 	}
-}
+};
 
 Board.prototype.calculateNextGeneration = function() {
 	var nextGeneration = new Board(this.size);
@@ -46,7 +46,7 @@ Board.prototype.calculateNextGeneration = function() {
 		}
 	}
 	return nextGeneration;
-}
+};
 Board.prototype.countNeighbours = function(x, y) {
 	var neighbourCount = 0;
 	for (var tempX = x - 1; tempX <= x + 1; tempX++) {
@@ -57,7 +57,7 @@ Board.prototype.countNeighbours = function(x, y) {
 		}
 	}
 	return neighbourCount;
-}
+};
 
 Board.prototype.calculateSquareValue = function(currentValue, neighbourCount) {
 	if (currentValue && (neighbourCount == 2 || neighbourCount == 3)) {
@@ -66,6 +66,6 @@ Board.prototype.calculateSquareValue = function(currentValue, neighbourCount) {
 		return true;
 	}
 	return false;
-}
+};
 
 module.exports = Board;

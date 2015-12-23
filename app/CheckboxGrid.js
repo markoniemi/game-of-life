@@ -1,6 +1,6 @@
 var CheckboxGrid = function(board) {
 	this.board = board;
-}
+};
 
 CheckboxGrid.prototype.createGrid = function(gridElement, size) {
 	var tableElement = this.createElement(gridElement, "table");
@@ -11,13 +11,13 @@ CheckboxGrid.prototype.createGrid = function(gridElement, size) {
 			this.createCheckbox(columnElement, this.board, column, row);
 		}
 	}
-}
+};
 
 CheckboxGrid.prototype.createElement = function(parent, elementType) {
 	var element = document.createElement(elementType);
 	parent.appendChild(element);
 	return element;
-}
+};
 CheckboxGrid.prototype.createCheckbox = function(parent, board, x, y) {
 	var element = document.createElement("input");
 	element.setAttribute("type", "checkbox");
@@ -32,12 +32,12 @@ CheckboxGrid.prototype.createCheckbox = function(parent, board, x, y) {
 		board.setValue(x, y, this.checked);
 	});
 	return element;
-}
+};
 CheckboxGrid.prototype.calculateNextGeneration = function() {
 	var nextGeneration = this.board.calculateNextGeneration();
 	this.board.setValues(nextGeneration);
 	this.updateCheckboxes();
-}
+};
 CheckboxGrid.prototype.updateCheckboxes = function() {
 	var gridElement = document.querySelector("#grid");
 	var tableRows = gridElement.querySelectorAll("tr");
@@ -48,12 +48,12 @@ CheckboxGrid.prototype.updateCheckboxes = function() {
 			checkbox.checked = this.board.getValue(column, row);
 		}
 	}
-}
+};
 CheckboxGrid.prototype.clearGrid = function() {
 	var gridElement = document.querySelector("#grid");
 	while (gridElement.lastChild) {
 		gridElement.removeChild(gridElement.lastChild);
 	}
-}
+};
 
 module.exports = CheckboxGrid;
