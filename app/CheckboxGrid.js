@@ -3,14 +3,11 @@ var CheckboxGrid = function(board) {
 }
 
 CheckboxGrid.prototype.createGrid = function(gridElement, size) {
-	var tableElement = this.createElement(gridElement,
-			"table");
+	var tableElement = this.createElement(gridElement, "table");
 	for (var row = 0; row < size; row++) {
-		var rowElement = this.createElement(tableElement,
-				"tr");
+		var rowElement = this.createElement(tableElement, "tr");
 		for (var column = 0; column < size; column++) {
-			var columnElement = this.createElement(
-					rowElement, "td");
+			var columnElement = this.createElement(rowElement, "td");
 			this.createCheckbox(columnElement, this.board, column, row);
 		}
 	}
@@ -28,7 +25,7 @@ CheckboxGrid.prototype.createCheckbox = function(parent, board, x, y) {
 	element.setAttribute("data-y", y);
 	element.value = board.value;
 	parent.appendChild(element);
-	element.addEventListener("click", function(){
+	element.addEventListener("click", function() {
 		var x = this.getAttribute('data-x');
 		var y = this.getAttribute('data-y');
 		// TODO how to access board in a object oriented manner?
@@ -50,6 +47,12 @@ CheckboxGrid.prototype.updateCheckboxes = function() {
 			var checkbox = checkboxes[column];
 			checkbox.checked = this.board.getValue(column, row);
 		}
+	}
+}
+CheckboxGrid.prototype.clearGrid = function() {
+	var gridElement = document.querySelector("#grid");
+	while (gridElement.lastChild) {
+		gridElement.removeChild(gridElement.lastChild);
 	}
 }
 

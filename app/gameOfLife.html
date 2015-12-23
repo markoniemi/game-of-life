@@ -1,7 +1,16 @@
-<select id="size">
-	<option>8x8</option>
-	<option>16x16</option>
-</select>
-<button id="next">Next generation</button>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<div class="row">
+	<div class="col-md-2">
+		<select id="size" class="form-control">
+			<option value="16">16x16</option>
+			<option value="32">32x32</option>
+			<option value="64">64x64</option>
+		</select>
+	</div>
+	<button id="next" class="btn btn-primary">Next generation</button>
+</div>
 <div id="grid"></div>
 <script src="./require1k.min.js" data-main="./gameOfLife"></script>
