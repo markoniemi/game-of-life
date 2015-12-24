@@ -4,7 +4,7 @@ module.exports = function(karma) {
 	karma.set({
 		frameworks : [ 'jasmine', 'browserify' ],
 		files : [ 'app*/**/*-test.js' ],
-		reporters : [ 'dots', 'coverage', 'coveralls' ],
+		reporters : [ 'dots', 'coverage', 'coveralls', 'junit' ],
 		preprocessors : {
 			'app*/**/*-test.js' : [ 'browserify' ],
 			'app*/**/*.js' : [ 'browserify' ]

@@ -1,1 +1,1 @@
-{"ide":{"scriptPaths":[{"type":"FOLDER","path":"app"}]},"libs":["ecma5","browser","jquery"],"plugins":{"node":{},"jasmine":{},"bootstrap":{}}}
+{"ide":{},"libs":["ecma5","browser","jquery"],"plugins":{"guess-types":{},"node":{},"jasmine":{},"bootstrap":{}}}

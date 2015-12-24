@@ -5,6 +5,7 @@
   "main": "",
   "scripts": {
     "test": "karma start",
+    "test:watch": "karma start --auto-watch --browsers Chrome --no-single-run",
     "lint": "jshint app"
   },
   "author": "",
@@ -24,7 +25,8 @@
     "karma-coverage": "0.5.3",
     "karma-coveralls": "1.1.2",
     "karma-jasmine": "^0.1.6",
-    "karma-phantomjs-launcher": "0.1.4"
+    "karma-phantomjs-launcher": "0.1.4",
+	"karma-junit-reporter": "0.3.8"
   },
   "browserify-shim": {
     "external": "global:External"
