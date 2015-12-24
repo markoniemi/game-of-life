@@ -1,5 +1,8 @@
 var gridElement = document.querySelector("#grid");
-var nextButton = document.querySelector("#next");
+var playButton = document.querySelector("#play");
+var fastForwardButton = document.querySelector("#fastForward");
+var pauseButton = document.querySelector("#pause");
+var stepButton = document.querySelector("#step");
 var sizeSelect = document.querySelector("#size");
 
 var Board = require('./Board');
@@ -9,8 +12,24 @@ var size = 16;
 var board = new Board(size);
 var checkboxGrid = new CheckboxGrid(board);
 checkboxGrid.createGrid(gridElement, size);
+var timerId;
 
-nextButton.addEventListener("click", function() {
+playButton.addEventListener("click", function() {
+	window.clearInterval(timerId);
+	timerId = window.setInterval(function(){
+		checkboxGrid.calculateNextGeneration();
+	}, 1000);
+});
+pauseButton.addEventListener("click", function() {
+	window.clearInterval(timerId);
+});
+fastForwardButton.addEventListener("click", function() {
+	window.clearInterval(timerId);
+	timerId = window.setInterval(function(){
+		checkboxGrid.calculateNextGeneration();
+	}, 300);
+});
+stepButton.addEventListener("click", function() {
 	checkboxGrid.calculateNextGeneration();
 });
 sizeSelect.addEventListener("change", function() {
