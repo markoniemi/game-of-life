@@ -9,7 +9,7 @@ module.exports = function(karma) {
 			'app*/**/*-test.js' : [ 'browserify' ],
 			'app*/**/*.js' : [ 'browserify' ]
 		},
-//		browsers : [ 'Chrome' ],
+		// browsers : [ 'Chrome' ],
 		browsers : [ 'PhantomJS' ],
 		// logLevel: 'LOG_DEBUG',
 		singleRun : true,
@@ -19,9 +19,16 @@ module.exports = function(karma) {
 			debug : false,
 			transform : [ 'brfs', 'browserify-shim', 'browserify-istanbul' ]
 		},
+		junitReporter : {
+			outputDir : 'reports/test',
+			useBrowserName : false
+		},
 		coverageReporter : {
-				type : 'lcov',
-				dir : 'coverage/'
+			type : 'lcov',
+			dir : 'reports',
+			subdir : 'coverage',
+			file : 'lcov.info',
+			useBrowserName : false
 		}
 	});
 };
